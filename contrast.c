@@ -10,7 +10,7 @@
 double calLum(double in_r, double in_g, double in_b);
 double defRGB(double in);
 double calCon(double color1, double color2);
-int usageError(void);
+int usageError(int code);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -18,17 +18,17 @@ int main(int argc, char *argv[])
     // If Usage doesn't conform
     if (argc != 3)
     {
-        usageError();
+        usageError(1);
     }
     // If color 1 isnt RGB or HTML
     if (strcmp(argv[1], "RGB") != 0 && strcmp(argv[1], "HTML") != 0)
     {
-        usageError();
+        usageError(1);
     }
     // If color 2 isnt RGB or HTML
     if (strcmp(argv[2], "RGB") != 0 && strcmp(argv[2], "HTML") != 0)
     {
-        usageError();
+        usageError(1);
     }
     // // Capture and convert CLA to doubles
     // double a, b, c, a2, b2, c2;
@@ -79,11 +79,18 @@ double calCon(double color1, double color2)
     return contrast;
 }
 
-int usageError(void)
+int usageError(int code)
 {
-    printf("Usage: ./contrast {color1} {color2}\n");
-    printf("{color} must be either 'RGB' or 'HTML'}\n");
-    return 0;
+    switch (code)
+    {
+    case 1:
+        printf("Usage: ./contrast {color1} {color2}\n");
+        printf("{color} must be either 'RGB' or 'HTML'}\n");
+        return 0;
+        break;
+    default:
+        printf("usageError encountered an unexcpected error code %i", code);
+    }
 }
 
 double calLum(double in_r, double in_g, double in_b)
