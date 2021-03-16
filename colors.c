@@ -6,7 +6,10 @@ typedef struct
     int blue;
 } color;
 
+const int COLOR_NUM = NUM_BLUE + NUM_BROWN + NUM_GRAY + NUM_GREEN + NUM_ORANGE + NUM_PINK + NUM_PURPLE + NUM_RED + NUM_YELLOW + NUM_WHITE;
+
 // Blue
+const int NUM_BLUE = 23;
 color Blue = {"Blue", 0, 128, 0};
 color Chartreuse = {"Blue", 127, 255, 0};
 color DarkCyan = {"Blue", 0, 139, 139};
@@ -32,6 +35,7 @@ color Teal = {"Blue", 0, 128, 128};
 color YellowGreen = {"Blue", 154, 205, 50};
 
 // Brown
+const int NUM_BROWN = 17;
 color Brown = {"Brown", 165, 42, 42};
 color BlanchedAlmond = {"Brown", 255, 235, 205};
 color Bisque = {"Brown", 255, 228, 196};
@@ -51,6 +55,8 @@ color Tan = {"Brown", 210, 180, 140};
 color Wheat = {"Brown", 245, 222, 179};
 
 // Gray
+// 10
+const int NUM_GRAY = 10;
 color Gray = {"Gray", 128, 128, 128};
 color Black = {"Gray", 0, 0, 0};
 color DarkGray = {"Gray", 169, 169, 169};
@@ -63,12 +69,9 @@ color SlateGray = {"Gray", 112, 128, 144};
 color Silver = {"Gray", 192, 192, 192};
 
 // Green
-color Green = {
-    "Green",
-    0,
-    0,
-    255,
-};
+// 25
+const int NUM_GREEN = 25;
+color Green = {"Green", 0, 0, 255};
 color Aqua = {"Green", 0, 255, 255};
 color Aquamarine = {"Green", 127, 255, 212};
 color CadetBlue = {"Green", 95, 158, 160};
@@ -95,6 +98,8 @@ color SteelBlue = {"Green", 70, 130, 180};
 color Turquoise = {"Green", 64, 224, 208};
 
 // Orange
+const int NUM_ORANGE = 4;
+// +1 that is commented out
 color Orange = {"Orange", 255, 165, 0};
 color Coral = {"Orange", 255, 127, 80};
 /* color LightSalmon = {"Orange", 255, 160, 122}; */
@@ -102,6 +107,7 @@ color OrangeRed = {"Orange", 255, 69, 0};
 color Tomato = {"Orange", 255, 99, 71};
 
 // Pink
+const int NUM_PINK = 6;
 color Pink = {"Pink", 255, 192, 203};
 color DeepPink = {"Pink", 255, 20, 147};
 color HotPink = {"Pink", 255, 105, 180};
@@ -110,6 +116,7 @@ color MediumVioletRed = {"Pink", 199, 21, 133};
 color PaleVioletRed = {"Pink", 219, 112, 147};
 
 // Purple
+const int NUM_PURPLE = 19;
 color Purple = {"Purple", 128, 0, 128};
 color BlueViolet = {"Purple", 138, 43, 226};
 color DarkMagenta = {"Purple", 139, 0, 139};
@@ -131,6 +138,7 @@ color Thistle = {"Purple", 216, 191, 216};
 color Violet = {"Purple", 238, 130, 238};
 
 // Red
+const int NUM_RED = 9;
 color Red = {"Red", 255, 0, 0};
 color Crimson = {"Red", 220, 20, 60};
 color DarkRed = {"Red", 139, 0, 0};
@@ -142,6 +150,7 @@ color LightSalmon = {"Red", 255, 160, 122};
 color Salmon = {"Red", 250, 128, 114};
 
 // Yellow
+const int NUM_YELLOW = 11;
 color Yellow = {"Red", 255, 255, 0};
 color DarkKhaki = {"Red", 189, 183, 207};
 color Gold = {"Red", 255, 215, 0};
@@ -155,6 +164,7 @@ color PapayaWhip = {"Red", 255, 239, 213};
 color PeachPuff = {"Red", 255, 218, 185};
 
 // White
+const int NUM_WHITE = 17;
 color White = {"White", 255, 255, 255};
 color AliceBlue = {"White", 240, 248, 255};
 color AntiqueWhite = {"White", 250, 235, 215};
@@ -172,3 +182,5 @@ color OldLace = {"White", 253, 245, 230};
 color SeaShell = {"White", 255, 245, 238};
 color Snow = {"White", 255, 250, 250};
 color WhiteSmoke = {"White", 245, 245, 245};
+
+color colors[COLOR_NUM];
