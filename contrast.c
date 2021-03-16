@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <math.h>
 #include "colors.c"
 
@@ -9,48 +10,54 @@
 double calLum(double in_r, double in_g, double in_b);
 double defRGB(double in);
 double calCon(double color1, double color2);
+int usageError(void);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
 {
+    // If Usage doesn't conform
+    if (argc != 3)
+    {
+        usageError();
+    }
+    // If color 1 isnt RGB or HTML
+    if (strcmp(argv[1], "RGB") != 0 && strcmp(argv[1], "HTML") != 0)
+    {
+        usageError();
+    }
+    // If color 2 isnt RGB or HTML
+    if (strcmp(argv[2], "RGB") != 0 && strcmp(argv[2], "HTML") != 0)
+    {
+        usageError();
+    }
+    // // Capture and convert CLA to doubles
+    // double a, b, c, a2, b2, c2;
+    // a = atof(argv[1]);
+    // b = atof(argv[2]);
+    // c = atof(argv[3]);
+    // a2 = atof(argv[4]);
+    // b2 = atof(argv[5]);
+    // c2 = atof(argv[6]);
 
-    if (argc != 7)
-    {
-        if (argc == 4)
-        {
-            printf("Contrast needs 2 RGB colours\n");
-        }
-        printf("Usage: ./contrast 255 255 255 0 0 0\n");
-        return 1;
-    }
-    // Capture and convert CLA to doubles
-    double a, b, c, a2, b2, c2;
-    a = atof(argv[1]);
-    b = atof(argv[2]);
-    c = atof(argv[3]);
-    a2 = atof(argv[4]);
-    b2 = atof(argv[5]);
-    c2 = atof(argv[6]);
+    // double color1 = calLum(a, b, c);
+    // double color2 = calLum(a2, b2, c2);
 
-    double color1 = calLum(a, b, c);
-    double color2 = calLum(a2, b2, c2);
-
-    double ratio = calCon(color1, color2);
-    // Prints to 12 Decimal Places
-    printf("%.2f", ratio);
-    printf(":1\n");
-    if (ratio < 4.5)
-    {
-        printf("Contrast Fail");
-    }
-    else if (ratio > 4.4 && ratio < 7)
-    {
-        printf("Meets Minimum Contrast Ratio\n");
-    }
-    else if (ratio >= 7)
-    {
-        printf("Meets Reccomended Contrast Ratio\n");
-    }
+    // double ratio = calCon(color1, color2);
+    // // Prints to 12 Decimal Places
+    // printf("%.2f", ratio);
+    // printf(":1\n");
+    // if (ratio < 4.5)
+    // {
+    //     printf("Contrast Fail");
+    // }
+    // else if (ratio > 4.4 && ratio < 7)
+    // {
+    //     printf("Meets Minimum Contrast Ratio\n");
+    // }
+    // else if (ratio >= 7)
+    // {
+    //     printf("Meets Reccomended Contrast Ratio\n");
+    // }
 }
 
 double calCon(double color1, double color2)
@@ -70,6 +77,13 @@ double calCon(double color1, double color2)
         contrast = (color2 + 0.05) / (color1 + 0.05);
     }
     return contrast;
+}
+
+int usageError(void)
+{
+    printf("Usage: ./contrast {color1} {color2}\n");
+    printf("{color} must be either 'RGB' or 'HTML'}\n");
+    return 0;
 }
 
 double calLum(double in_r, double in_g, double in_b)
