@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     }
 
     char rgb[14];
-    char *input;
+    char input[19];
     // !debugging code
     printf("Type HTML Color Code\n");
     scanf("%s19\n", input);
@@ -163,10 +163,8 @@ void findHTML(char *html, char *loc)
         }
         else
         {
-            printf("Name Does Not Match\n");
             sprintf(loc, "No Match");
         }
-        printf("\n");
     }
 }
 
