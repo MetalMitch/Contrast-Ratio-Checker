@@ -15,7 +15,7 @@ double defRGB(double in);
 double calCon(double color1, double color2);
 int usageError(int code);
 void findHTML(char *html, char *loc);
-void int2RGB(int red, int green, int blue, char *loc);
+void RGBtoString(int red, int green, int blue, char *loc);
 char *sparem(char *input);
 void lower(char *p);
 
@@ -176,7 +176,7 @@ void findHTML(char *html, char *loc)
             int red = colors[i].shade.red;
             int green = colors[i].shade.green;
             int blue = colors[i].shade.blue;
-            int2RGB(red, green, blue, loc);
+            RGBtoString(red, green, blue, loc);
             break;
         }
         else
@@ -190,7 +190,7 @@ void findHTML(char *html, char *loc)
     }
 }
 
-void int2RGB(int red, int green, int blue, char *loc)
+void RGBtoString(int red, int green, int blue, char *loc)
 {
     sprintf(loc, "%i, %i, %i", red, green, blue);
 }
