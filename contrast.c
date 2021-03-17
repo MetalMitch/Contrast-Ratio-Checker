@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <ctype.h>
 #include "colors.c"
 
 // Declarations
@@ -12,9 +11,18 @@ double calLum(double in_r, double in_g, double in_b);
 double defRGB(double in);
 double calCon(double color1, double color2);
 int usageError(int code);
+<<<<<<< HEAD
 void findHTML(char *html, char *loc);
 void int2RGB(int red, int green, int blue, char *loc);
+<<<<<<< HEAD
+<<<<<<< HEAD
 char *sparem(char *input);
+=======
+>>>>>>> parent of 4fe69a7 (created find function for colors)
+=======
+>>>>>>> parent of ceb6f27 (Updating gitignore)
+=======
+>>>>>>> parent of ceb6f27 (Updating gitignore)
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -35,6 +43,7 @@ int main(int argc, char *argv[])
         usageError(1);
     }
 
+<<<<<<< HEAD
     char rgb[14];
     char *input;
     // !debugging code
@@ -44,6 +53,8 @@ int main(int argc, char *argv[])
     printf("RGB values are:\n%s\n", rgb);
     // !debugging code
 
+=======
+>>>>>>> parent of 4fe69a7 (created find function for colors)
     // // Capture and convert CLA to doubles
     // double a, b, c, a2, b2, c2;
     // a = atof(argv[1]);
@@ -148,6 +159,7 @@ double defRGB(double in)
     }
     return out;
 }
+<<<<<<< HEAD
 
 void findHTML(char *html, char *loc)
 {
@@ -174,4 +186,14 @@ void findHTML(char *html, char *loc)
 void int2RGB(int red, int green, int blue, char *loc)
 {
     sprintf(loc, "%i, %i, %i", red, green, blue);
+<<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+>>>>>>> parent of 4fe69a7 (created find function for colors)
+=======
+}
+>>>>>>> parent of ceb6f27 (Updating gitignore)
+=======
+}
+>>>>>>> parent of ceb6f27 (Updating gitignore)
