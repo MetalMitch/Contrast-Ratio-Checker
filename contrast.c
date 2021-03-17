@@ -11,6 +11,8 @@ double calLum(double in_r, double in_g, double in_b);
 double defRGB(double in);
 double calCon(double color1, double color2);
 int usageError(int code);
+void findHTML(char *html, char *loc);
+void int2RGB(int red, int green, int blue, char *loc);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -30,6 +32,14 @@ int main(int argc, char *argv[])
     {
         usageError(1);
     }
+
+    char rgb[14];
+    // !debugging code
+    printf("Type HTML Color Code\n");
+    scanf("%s19\n", input);
+    findHTML(input, rgb);
+    printf("RGB values are:\n%s\n", rgb);
+    // !debugging code
 
     // // Capture and convert CLA to doubles
     // double a, b, c, a2, b2, c2;
@@ -134,4 +144,31 @@ double defRGB(double in)
         out = pow(out, 2.4);
     }
     return out;
+}
+
+void findHTML(char *html, char *loc)
+{
+    // 14 is the maximum needed characters
+    for (int i = 0; i < COLOR_NUM - 1; i++)
+    {
+        if (strcmp(colors[i].shade.name, html) == 0)
+        {
+            int red = colors[i].shade.red;
+            int green = colors[i].shade.green;
+            int blue = colors[i].shade.blue;
+            int2RGB(red, green, blue, loc);
+            break;
+        }
+        else
+        {
+            printf("Name Does Not Match\n");
+            sprintf(loc, "No Match");
+        }
+        printf("\n");
+    }
+}
+
+void int2RGB(int red, int green, int blue, char *loc)
+{
+    sprintf(loc, "%i, %i, %i", red, green, blue);
 }
