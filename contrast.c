@@ -7,6 +7,8 @@
 #include "colors.c"
 #include <ctype.h>
 
+const int INTEGER = 19;
+
 // Declarations
 double calLum(double in_r, double in_g, double in_b);
 double defRGB(double in);
@@ -36,17 +38,16 @@ int main(int argc, char *argv[])
         usageError(1);
     }
 
-    char rgb[14];
-    char input[19];
+    char rgb[INTEGER];
+    char input[INTEGER];
     // !debugging code
     // *find function
     printf("Type HTML Color Code\n");
     scanf("%s19\n", input);
-    // findHTML(input, rgb);
-    // printf("RGB values are:\n%s\n", rgb);
-    // * lower function
     // lower(input);
-    // printf("%s\n", input);
+    // printf("After lower(), string is %s\n", input);
+    findHTML(input, rgb);
+    printf("RGB values are:\n%s\n", rgb);
     // !debugging code
 
     // // Capture and convert CLA to doubles
@@ -162,10 +163,15 @@ double defRGB(double in)
 
 void findHTML(char *html, char *loc)
 {
+    lower(html);
     // 14 is the maximum needed characters
     for (int i = 0; i < COLOR_NUM - 1; i++)
     {
-        if (strcmp(colors[i].shade.name, html) == 0)
+        char check[strlen(colors[i].shade.name)];
+        strcpy(check, colors[i].shade.name);
+        lower(check);
+
+        if (strcmp(check, html) == 0)
         {
             int red = colors[i].shade.red;
             int green = colors[i].shade.green;
