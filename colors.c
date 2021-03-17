@@ -9,7 +9,7 @@ typedef struct
 typedef struct
 {
     char *family;
-    shade info;
+    shade shade;
 } color;
 
 color Black = {"Black", {"Black", 0, 0, 0}};
