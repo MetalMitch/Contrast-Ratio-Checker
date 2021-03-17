@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <ctype.h>
 #include "colors.c"
 
 // Declarations
@@ -13,6 +14,7 @@ double calCon(double color1, double color2);
 int usageError(int code);
 void findHTML(char *html, char *loc);
 void int2RGB(int red, int green, int blue, char *loc);
+char *sparem(char *input);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -34,6 +36,7 @@ int main(int argc, char *argv[])
     }
 
     char rgb[14];
+    char *input;
     // !debugging code
     printf("Type HTML Color Code\n");
     scanf("%s19\n", input);
