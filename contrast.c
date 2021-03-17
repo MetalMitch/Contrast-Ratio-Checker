@@ -14,7 +14,7 @@ double calLum(double in_r, double in_g, double in_b);
 double defRGB(double in);
 double calCon(double color1, double color2);
 int usageError(int code);
-void findHTML(char *html, char *loc);
+void HTMLtoRGB(char *html, char *loc);
 void RGBtoString(int red, int green, int blue, char *loc);
 char *sparem(char *input);
 void lower(char *p);
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     scanf("%s19\n", input);
     // lower(input);
     // printf("After lower(), string is %s\n", input);
-    findHTML(input, rgb);
+    HTMLtoRGB(input, rgb);
     printf("RGB values are:\n%s\n", rgb);
     // !debugging code
 
@@ -161,7 +161,7 @@ double defRGB(double in)
     return out;
 }
 
-void findHTML(char *html, char *loc)
+void HTMLtoRGB(char *html, char *loc)
 {
     lower(html);
     // 14 is the maximum needed characters
