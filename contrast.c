@@ -5,6 +5,7 @@
 #include <string.h>
 #include <math.h>
 #include "colors.c"
+#include <ctype.h>
 
 // Declarations
 double calLum(double in_r, double in_g, double in_b);
@@ -14,6 +15,7 @@ int usageError(int code);
 void findHTML(char *html, char *loc);
 void int2RGB(int red, int green, int blue, char *loc);
 char *sparem(char *input);
+void lower(char *p);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -37,10 +39,14 @@ int main(int argc, char *argv[])
     char rgb[14];
     char input[19];
     // !debugging code
+    // *find function
     printf("Type HTML Color Code\n");
     scanf("%s19\n", input);
-    findHTML(input, rgb);
-    printf("RGB values are:\n%s\n", rgb);
+    // findHTML(input, rgb);
+    // printf("RGB values are:\n%s\n", rgb);
+    // * lower function
+    // lower(input);
+    // printf("%s\n", input);
     // !debugging code
 
     // // Capture and convert CLA to doubles
@@ -99,6 +105,12 @@ int usageError(int code)
     case 1:
         printf("Usage: ./contrast {color1} {color2}\n");
         printf("{color} must be either 'RGB' or 'HTML'}\n");
+        return 0;
+        break;
+    case 2:
+        printf("Color not found\n");
+        printf("Hint: Check the spelling of input\n");
+        printf("Hint: Check there are no spaces in input\n");
         return 0;
         break;
     default:
@@ -166,9 +178,24 @@ void findHTML(char *html, char *loc)
             sprintf(loc, "No Match");
         }
     }
+    if (strcmp(loc, "No Match") == 0)
+    {
+        usageError(2);
+    }
 }
 
 void int2RGB(int red, int green, int blue, char *loc)
 {
     sprintf(loc, "%i, %i, %i", red, green, blue);
+}
+
+void lower(char *p)
+{
+    // Copy pointer
+    char *str = p;
+
+    for (int i = 0; str[i]; i++)
+    {
+        str[i] = tolower(str[i]);
+    }
 }
