@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
     {
         usageError(1);
     }
+
     // // Capture and convert CLA to doubles
     // double a, b, c, a2, b2, c2;
     // a = atof(argv[1]);
@@ -90,6 +91,7 @@ int usageError(int code)
         break;
     default:
         printf("usageError encountered an unexcpected error code %i", code);
+        return 0;
     }
 }
 
