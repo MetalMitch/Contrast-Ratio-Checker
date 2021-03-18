@@ -164,44 +164,54 @@ double defRGB(double in)
 void HTMLtoRGB(char *html, char *loc)
 {
     lower(html);
-    // 14 is the maximum needed characters
+    // Loop through all colours
     for (int i = 0; i < COLOR_NUM - 1; i++)
     {
+        // Initialise string to hold current colour, matching its length
         char check[strlen(colors[i].shade.name)];
+        // copy the attribute to the check string
         strcpy(check, colors[i].shade.name);
+        // Standardise to lower case
         lower(check);
-
+        // if it matches the user's input
         if (strcmp(check, html) == 0)
         {
+            // Store each colour value
             int red = colors[i].shade.red;
             int green = colors[i].shade.green;
             int blue = colors[i].shade.blue;
+            // Convert to string and store in output location
             RGBtoString(red, green, blue, loc);
             break;
         }
         else
         {
+            // Store "No match in output"
             sprintf(loc, "No Match");
         }
     }
     if (strcmp(loc, "No Match") == 0)
     {
+        // Provide usage error
         usageError(2);
     }
 }
-
+// Convert RGB values to a string
 void RGBtoString(int red, int green, int blue, char *loc)
 {
-    sprintf(loc, "%i, %i, %i", red, green, blue);
+    // Copying pointer
+    char *output = loc;
+    sprintf(output, "%i, %i, %i", red, green, blue);
 }
 
 void lower(char *p)
 {
     // Copy pointer
     char *str = p;
-
+    // For each letter
     for (int i = 0; str[i]; i++)
     {
+        // Change to lower case
         str[i] = tolower(str[i]);
     }
 }
