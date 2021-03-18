@@ -19,6 +19,7 @@ void RGBtoString(int red, int green, int blue, char *loc);
 char *sparem(char *input);
 void lower(char *p);
 void stringToRGB(char *string, int *r, int *g, int *b);
+char *findHTML(void);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -45,8 +46,6 @@ int main(int argc, char *argv[])
     // *find function
     printf("Type HTML Color Code\n");
     scanf("%s19\n", input);
-    // lower(input);
-    // printf("After lower(), string is %s\n", input);
     HTMLtoRGB(input, rgb);
     printf("RGB values are:\n%s\n", rgb);
     printf("converting to integers\n");
@@ -113,17 +112,17 @@ int usageError(int code)
     case 1:
         printf("Usage: ./contrast {color1} {color2}\n");
         printf("{color} must be either 'RGB' or 'HTML'}\n");
-        return 0;
+        exit(0);
         break;
     case 2:
         printf("Color not found\n");
         printf("Hint: Check the spelling of input\n");
         printf("Hint: Check there are no spaces in input\n");
-        return 0;
+        exit(0);
         break;
     default:
-        printf("usageError encountered an unexcpected error code %i", code);
-        return 0;
+        printf("usageError encountered an unexpected error code %i", code);
+        exit(0);
     }
 }
 

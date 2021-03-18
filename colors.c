@@ -14,49 +14,51 @@ typedef struct
 
 color Black = {"Black", {"Black", 0, 0, 0}};
 
-const int NUM_BLUE = 23;
+const int NUM_BLUE = 25;
 const int NUM_BROWN = 17;
 const int NUM_GRAY = 10;
-const int NUM_GREEN = 25;
-const int NUM_ORANGE = 5;
-// +1 that is commented out
+const int NUM_GREEN = 23;
+const int NUM_ORANGE = 6;
 const int NUM_PINK = 6;
 const int NUM_PURPLE = 19;
 const int NUM_RED = 9;
 const int NUM_YELLOW = 11;
 const int NUM_WHITE = 17;
+// const int COLOR_NUM = 100;
 
-const int COLOR_NUM = 23 + 17 + 10 + 25 + 5 + 6 + 19 + 9 + 11 + 17;
+const int COLOR_NUM = NUM_BLUE + NUM_BROWN + NUM_GRAY + NUM_GREEN + NUM_ORANGE + NUM_PINK + NUM_PURPLE + NUM_RED + NUM_YELLOW + NUM_WHITE;
 
 color colors[COLOR_NUM] = {
     // Blue
     {"Blue", {"Blue", 0, 128, 0}},
-    {"Blue", {"Chartreuse", 127, 255, 0}},
-    {"Blue", {"DarkCyan", 0, 139, 139}},
-    {"Blue", {"DarkGreen", 0, 100, 0}},
-    {"Blue", {"DarkOliveGreen", 85, 107, 47}},
-    {"Blue", {"DarkSeaGreen", 143, 188, 139}},
-    {"Blue", {"ForestGreen", 34, 139, 34}},
-    {"Blue", {"GreenYellow", 173, 255, 47}},
-    {"Blue", {"LawnGreen", 124, 252, 0}},
-    {"Blue", {"LightGreen", 144, 238, 144}},
-    {"Blue", {"LightSeaGreen", 32, 178, 170}},
-    {"Blue", {"Lime", 0, 255, 0}},
-    {"Blue", {"LimeGreen", 50, 205, 50}},
-    {"Blue", {"MediumAquamarine", 102, 205, 170}},
-    {"Blue", {"MediumSeaGreen", 60, 179, 113}},
-    {"Blue", {"MediumSpringGreen", 0, 250, 154}},
-    {"Blue", {"Olive", 128, 128, 0}},
-    {"Blue", {"OliveDrab", 107, 142, 35}},
-    {"Blue", {"PaleGreen", 152, 251, 156}},
-    {"Blue", {"SeaGreen", 46, 39, 87}},
-    {"Blue", {"SpringGreen", 0, 255, 127}},
-    {"Blue", {"Teal", 0, 128, 128}},
-    {"Blue", {"YellowGreen", 154, 205, 50}},
+    {"Blue", {"Aqua", 0, 255, 255}},
+    {"Blue", {"Aquamarine", 127, 255, 212}},
+    {"Blue", {"CadetBlue", 95, 158, 160}},
+    {"Blue", {"CornflowerBlue", 100, 149, 237}},
+    {"Blue", {"Cyan", 0, 255, 255}},
+    {"Blue", {"DarkBlue", 0, 0, 139}},
+    {"Blue", {"DarkTurquoise", 0, 206, 209}},
+    {"Blue", {"DeepSkyBlue", 0, 191, 255}},
+    {"Blue", {"DodgerBlue", 30, 144, 255}},
+    {"Blue", {"LightBlue", 173, 216, 230}},
+    {"Blue", {"LightCyan", 224, 255, 255}},
+    {"Blue", {"LightSkyBlue", 135, 206, 250}},
+    {"Blue", {"LightSteelBlue", 176, 196, 222}},
+    {"Blue", {"MediumBlue", 0, 0, 205}},
+    {"Blue", {"MediumSlateBlue", 123, 104, 238}},
+    {"Blue", {"MediumTurquoise", 72, 209, 204}},
+    {"Blue", {"MidnightBlue", 25, 25, 112}},
+    {"Blue", {"Navy", 0, 0, 128}},
+    {"Blue", {"PaleTurquoise", 175, 238, 238}},
+    {"Blue", {"PowderBlue", 176, 224, 230}},
+    {"Blue", {"RoyalBlue", 65, 105, 225}},
+    {"Blue", {"SkyBlue", 135, 206, 235}},
+    {"Blue", {"SteelBlue", 70, 130, 180}},
+    {"Blue", {"Turquoise", 64, 224, 208}},
     // Brown
     {"Brown", {"Brown", 165, 42, 42}},
-    {"Brown", {"BlanchedAlmond", 255, 235, 205}},
     {"Brown", {"Bisque", 255, 228, 196}},
+    {"Brown", {"BlanchedAlmond", 255, 235, 205}},
     {"Brown", {"BurlyWood", 222, 184, 135}},
     {"Brown", {"Chocolate", 210, 105, 30}},
     {"Brown", {"Cornsilk", 255, 248, 220}},
@@ -71,6 +73,7 @@ color colors[COLOR_NUM] = {
     {"Brown", {"Sienna", 160, 82, 45}},
     {"Brown", {"Tan", 210, 180, 140}},
     {"Brown", {"Wheat", 245, 222, 179}},
+
     // Gray
     {"Gray", {"Gray", 128, 128, 128}},
     {"Gray", {"Black", 0, 0, 0}},
@@ -83,34 +86,33 @@ color colors[COLOR_NUM] = {
     {"Gray", {"SlateGray", 112, 128, 144}},
     {"Gray", {"Silver", 192, 192, 192}},
     // Green
-    {"Green", {"Green", 0, 0, 255}},
-    {"Green", {"Aqua", 0, 255, 255}},
-    {"Green", {"Aquamarine", 127, 255, 212}},
-    {"Green", {"CadetBlue", 95, 158, 160}},
-    {"Green", {"CornflowerBlue", 100, 149, 237}},
-    {"Green", {"Cyan", 0, 255, 255}},
-    {"Green", {"DarkBlue", 0, 0, 139}},
-    {"Green", {"DarkTurquoise", 0, 206, 209}},
-    {"Green", {"DeepSkyBlue", 0, 191, 255}},
-    {"Green", {"DodgerBluen", 30, 144, 255}},
-    {"Green", {"LightBlue", 173, 216, 230}},
-    {"Green", {"LightCyan", 224, 255, 255}},
-    {"Green", {"LightSkyBlue", 135, 206, 250}},
-    {"Green", {"LightSteelBlue", 176, 196, 222}},
-    {"Green", {"MediumBlue", 0, 0, 205}},
-    {"Green", {"MediumSlateBlue", 123, 104, 238}},
-    {"Green", {"MediumTurquoise", 72, 209, 204}},
-    {"Green", {"MidnightBlue", 25, 25, 112}},
-    {"Green", {"Navy", 0, 0, 128}},
-    {"Green", {"PaleTurquoise", 175, 238, 238}},
-    {"Green", {"PowderBlue", 176, 224, 230}},
-    {"Green", {"RoyalBlue", 65, 105, 225}},
-    {"Green", {"SkyBlue", 135, 206, 235}},
-    {"Green", {"SteelBlue", 70, 130, 180}},
-    {"Green", {"Turquoise", 64, 224, 208}},
+    {"Green", {"Green", 0, 128, 0}},
+    {"Green", {"Chartreuse", 127, 255, 0}},
+    {"Green", {"DarkCyan", 0, 139, 139}},
+    {"Green", {"DarkGreen", 0, 100, 0}},
+    {"Green", {"DarkOliveGreen", 85, 107, 47}},
+    {"Green", {"DarkSeaGreen", 143, 188, 139}},
+    {"Green", {"ForestGreen", 34, 139, 34}},
+    {"Green", {"GreenYellow", 173, 255, 47}},
+    {"Green", {"LawnGreen", 124, 252, 0}},
+    {"Green", {"LightGreen", 144, 238, 144}},
+    {"Green", {"LightSeaGreen", 32, 178, 170}},
+    {"Green", {"Lime", 0, 255, 0}},
+    {"Green", {"LimeGreen", 50, 205, 50}},
+    {"Green", {"MediumAquamarine", 102, 205, 170}},
+    {"Green", {"MediumSeaGreen", 60, 179, 113}},
+    {"Green", {"MediumSpringGreen", 0, 250, 154}},
+    {"Green", {"Olive", 128, 128, 0}},
+    {"Green", {"OliveDrab", 107, 142, 35}},
+    {"Green", {"PaleGreen", 152, 251, 156}},
+    {"Green", {"SeaGreen", 46, 39, 87}},
+    {"Green", {"SpringGreen", 0, 255, 127}},
+    {"Green", {"Teal", 0, 128, 128}},
+    {"Green", {"YellowGreen", 154, 205, 50}},
     // Orange
     {"Orange", {"Orange", 255, 165, 0}},
     {"Orange", {"Coral", 255, 127, 80}},
+    {"Orange", {"DarkOrange", 255, 140, 0}},
     {"Orange", {"LightSalmon", 255, 160, 122}},
     {"Orange", {"OrangeRed", 255, 69, 0}},
     {"Orange", {"Tomato", 255, 99, 71}},
