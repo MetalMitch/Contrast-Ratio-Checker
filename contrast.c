@@ -18,6 +18,7 @@ void HTMLtoRGB(char *html, char *loc);
 void RGBtoString(int red, int green, int blue, char *loc);
 char *sparem(char *input);
 void lower(char *p);
+void stringToRGB(char *string, int *r, int *g, int *b);
 
 // Main just to prove the concept
 int main(int argc, char *argv[])
@@ -48,6 +49,12 @@ int main(int argc, char *argv[])
     // printf("After lower(), string is %s\n", input);
     HTMLtoRGB(input, rgb);
     printf("RGB values are:\n%s\n", rgb);
+    printf("converting to integers\n");
+    int one, two, three;
+    stringToRGB(rgb, &one, &two, &three);
+    printf("Red value is %i\n", one);
+    printf("Green value is %i\n", two);
+    printf("Blue value is %i\n", three);
     // !debugging code
 
     // // Capture and convert CLA to doubles
@@ -214,4 +221,25 @@ void lower(char *p)
         // Change to lower case
         str[i] = tolower(str[i]);
     }
+}
+// Convert string of RGB values to three separate integers
+void stringToRGB(char *string, int *r, int *g, int *b)
+{
+    // Copy Pointers
+    char *str = string;
+    int *red = r;
+    int *green = g;
+    int *blue = b;
+    // Initialise array to temporarily keep
+    // 3 strings, each a max of 4 chars (inc \0)
+    char rgb[3][4];
+    // Split string into 3
+    char *redString = strtok(str, ", ");
+    char *greenString = strtok(NULL, ", ");
+    char *blueString = strtok(NULL, ", ");
+
+    // convert strings to integers and store in the output locations
+    *red = atoi(redString);
+    *green = atoi(greenString);
+    *blue = atoi(blueString);
 }
